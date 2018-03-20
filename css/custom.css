@@ -1,0 +1,73 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.list-product {
+    margin: 10px 0px;
+}
+
+.m-auto {
+  margin:auto;
+}
+
+.thumb-product {
+  margin-top: 4px !important;
+}
+
+.description-product {
+  padding: 10px;
+  margin: 15px 0px;
+}
+
+
+.a-btn {
+  color:white !important;
+  font-weight: bold;
+}
+
+.row.register-page {
+    margin-top: 30px;
+}
+
+h3.product-title a {
+    font-size: 22px;
+    color: #161616;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.text-center.modalFooter {
+    margin: 5px 0px 10px 0px !important;
+}
+
+.kontakKami th, td {
+    padding: 3px;
+
+
+}
+table.kontakKami {
+    text-align: left;
+}
+
+
+@media only screen and (max-width: 320px){
+.form-inline.float-md-right {
+  margin-top:10px;
+  }
+
+.text-left {
+  display: block;
+}
+
+}
+
+  @media only screen and (min-width:321px) and (max-width: 412px) {
+  .form-inline.float-md-right {
+    margin-top:10px;
+    float: right !important;
+    }}
