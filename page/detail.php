@@ -1,13 +1,29 @@
+<?php 
+  
+  $productID = isset($_GET['id']) ? $_GET['id'] : false;
+
+ ?>
+
+
 <div class="row">
   <div class="col-md-12 col-12 col-sm-12 ">
     <div class="text-center">
       <!-- IMAGE BIG  -->
+
       <img id="bigImage" class="img-fluid img-big" src="" alt="">
     </div>
     <div class="text-center">
       <!-- IMAGE THUMBNAIL  -->
-      <a class="getImg" href=""><img src="img/asus.jpg" alt="" class="img-thumbnail thumb-product img-fluid thumb-first" width="100"></a>
-      <a class="getImg" href=""><img src="img/asus-thumb.jpg" alt="" class="img-thumbnail thumb-product img-fluid" width="100"></a>
+      <?php 
+
+          $queryImage = $dbh->query("SELECT * FROM image_map WHERE productID = $productID ORDER BY imageID ASC");
+
+          while($rowImage = $queryImage->fetch(PDO::FETCH_OBJ)){
+
+       ?>
+      <a class="getImg" href=""><img src="img/<?php echo $rowImage->imageName; ?>" alt="" class="img-thumbnail thumb-product img-fluid thumb-first" width="100"></a>
+
+      <?php } ?>
     </div>
   </div>
 </div>

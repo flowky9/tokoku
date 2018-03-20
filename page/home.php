@@ -30,64 +30,37 @@
   </div>
 </div>
 <div class="row">
+  <?php 
+
+    $query = $dbh->query("SELECT * FROM product ORDER BY productID DESC");
+
+    while($row = $query->fetch(PDO::FETCH_OBJ)){
+
+   ?>
   <div class="col-12 col-sm-12 col-md-3 list-product">
     <!-- LIST PRODUCT -->
     <div class="card" >
+    <?php 
 
-    <img class="card-img-top" src="img/asus.jpg" alt="Card image cap">
+      $productID = $row->productID;
+
+      $queryImage = $dbh->query("SELECT * FROM image_map WHERE productID = $productID ORDER BY imageID ASC LIMIT 1");
+
+      $rowImage = $queryImage->fetch(PDO::FETCH_OBJ);
+
+
+
+      ?>
+    <img class="card-img-top" src="<?php echo URL.'img/'.$rowImage->imageName; ?>" alt="Card image cap">
     <div class="card-body">
-      <h3 class="card-title product-title"><a href="index.php?page=detail">Asus A455LF - WX901D</a></h3>
-      <h5 class="text-danger">Rp 5.000.000</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h3 class="card-title product-title"><a href="index.php?page=detail&id=<?php echo $productID; ?>"><?php echo $row->productName; ?></a></h3>
+      <h5 class="text-danger"><?php echo rupiah($row->productPrice); ?></h5>
+      <a href="#" class="btn btn-primary"> + Add to Cart</a>
     </div>
   </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-3 list-product">
-    <div class="card" >
+  <?php } ?>
 
-    <img class="card-img-top" src="img/asus.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title product-title"><a><?php echo trim_words("ASUS A455LF - WX901D GGWP") ?></a></h3>
-      <h5 class="text-danger">Rp 5.000.000</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  </div>
 
-  <div class="col-12 col-sm-12 col-md-3 list-product">
-    <div class="card">
-
-    <img class="card-img-top" src="img/asus.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title">Card title</h3>
-      <h5 class="text-danger">Rp 5.000.000</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  </div>
-
-  <div class="col-12 col-sm-12 col-md-3 list-product">
-    <div class="card">
-
-    <img class="card-img-top" src="img/asus.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title">Card title</h3>
-      <h5 class="text-danger">Rp 5.000.000</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  </div>
-
-  <div class="col-12 col-sm-12 col-md-3 list-product">
-    <div class="card">
-
-    <img class="card-img-top" src="img/asus.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title">Card title</h3>
-      <h5 class="text-danger">Rp 5.000.000</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-  </div>
 </div>
