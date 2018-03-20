@@ -16,33 +16,41 @@
             <th>Quantity</th>
             <th>Price</th>
             <th>Sub Price</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
+          <?php
+
+            $grandTotal = 0;
+            foreach($cart as $key => $value){
+
+          ?>
           <tr>
             <td>2</td>
-            <td><img src="img/asus.jpg" class="img-fluid" width="100" alt=""></td>
+            <td><?php echo $value['productName']; ?></td>
             <td><div class="col-12 col-sm-12">
-              <input type="text" class="form-control form-control-sm cart-qty" style="width:30px">
+              <input type="text" class="form-control form-control-sm cart-qty" style="width:30px" value="<?php echo $value['quantity']; ?>">
             </div></td>
-            <td>Rp 1.000.000</td>
-            <td>Rp 2.000.000</td>
+            <td><?php echo rupiah($value['productPrice']); ?></td>
+            <?php $subPrice = $value['productPrice'] * $value['quantity'];  ?>
+            <td><?php echo rupiah($subPrice); ?></td>
+            <td><a href="deleteCart.php?id=<?php echo $key; ?>"><img src="img/icon/trash.png" alt="Hapus dari Keranjang" width="20"></a></td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td><img src="img/asus-thumb.jpg" class="img-fluid" width="100" alt=""></td>
-            <td><div class="col-12 col-sm-12">
-              <input type="text" class="form-control form-control-sm cart-qty" style="width:30px">
-            </div></td>
-            <td>Rp 1.000.000</td>
-            <td>Rp 2.000.000</td>
-          </tr>
+
+
+          <?php 
+
+            $grandTotal = $grandTotal + $subPrice;
+
+          } ?>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td><b>Total</b></td>
-            <td>Rp 2.000.000</td>
+            <td><?php echo rupiah($grandTotal); ?></td>
+            <td></td>
           </tr>
         </tbody>
       </table>

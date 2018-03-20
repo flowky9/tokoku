@@ -19,6 +19,9 @@
                     <?php hierarchy(); ?>
 
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo URL."index.php?page=cart" ?>">Cart <sup><?php echo $sizeOfCart ?></sup></a>
+            </li>
         </ul>
     </div>
 

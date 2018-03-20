@@ -1,11 +1,19 @@
 <?php
 
+session_start();
 require_once("function/helper.php");
 require_once("function/connection.php");
 
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 
+$cart = $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
+// echo "<pre>";
+// print_r($cart);
+// echo "</pre>";
+
+
+$sizeOfCart = count($cart);
 
  ?>
 

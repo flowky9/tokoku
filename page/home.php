@@ -55,7 +55,7 @@
     <div class="card-body">
       <h3 class="card-title product-title"><a href="index.php?page=detail&id=<?php echo $productID; ?>"><?php echo $row->productName; ?></a></h3>
       <h5 class="text-danger"><?php echo rupiah($row->productPrice); ?></h5>
-      <a href="#" class="btn btn-primary"> + Add to Cart</a>
+      <a href="addToCart.php?id=<?php echo $productID; ?>" class="btn btn-primary"> + Add to Cart</a>
     </div>
   </div>
   </div>
