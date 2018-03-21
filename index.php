@@ -28,6 +28,10 @@ $sizeOfCart = count($cart);
   <link rel="stylesheet" href="css/custom.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap-4-navbar.css">
+  <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
@@ -99,7 +103,8 @@ $sizeOfCart = count($cart);
   </div>
   <!-- END OF CONTAINER  -->
 
-<script type="text/javascript" src="js/jquery-slim.min.js"></script>
+
+
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-4-navbar.js"></script>

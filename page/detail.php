@@ -39,7 +39,7 @@
         </div>
         <div class="text-right">
           <label class="d-block" for="">stock : 10</label>
-          <a class=" btn btn-primary btn-sm d-block" href="">Add to Cart <span class="add-product">+</span></a>
+          <a class=" btn btn-primary btn-sm d-block" href="addToCart.php?id=<?php echo $productID; ?>">Add to Cart <span class="add-product">+</span></a>
         </div>
       </div>
       </div>

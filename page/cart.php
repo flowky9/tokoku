@@ -30,7 +30,7 @@
             <td>2</td>
             <td><?php echo $value['productName']; ?></td>
             <td><div class="col-12 col-sm-12">
-              <input type="text" class="form-control form-control-sm cart-qty" style="width:30px" value="<?php echo $value['quantity']; ?>">
+              <input type="text" id="<?php echo $key; ?>" class="form-control form-control-sm cart-qty" style="width:30px" value="<?php echo $value['quantity']; ?>">
             </div></td>
             <td><?php echo rupiah($value['productPrice']); ?></td>
             <?php $subPrice = $value['productPrice'] * $value['quantity'];  ?>
@@ -70,3 +70,19 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(".cart-qty").on("input",function(e){
+    var barang_id = $(this).attr("id");
+    var value = $(this).val();
+
+    $.ajax({
+      method  : "POST",
+      url     : "updateCart.php",
+      data    : "barang_id="+barang_id+"&value="+value
+
+    }).done(function(data){
+      location.reload();
+    });
+  });
+</script>
