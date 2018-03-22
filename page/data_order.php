@@ -1,3 +1,8 @@
+<?php 
+
+$kota = isset($_SESSION['kota']) ? $_SESSION['kota'] : false;
+
+// echo $kota; ?>
 <div class="row pesanan">
 	<div class="col-md-6">
 	<div class="card">
@@ -17,22 +22,39 @@
 			    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="08xxxxxxx">
 			  </div>
 			  <div class="form-group">
-			    <label for="exampleFormControlSelect1">Kota Tujuan</label>
-			    <select class="form-control" id="exampleFormControlSelect1">
+			    <label  for="exampleFormControlSelect1">Kota Tujuan</label>
+			    <select id="kota" class="form-control" id="exampleFormControlSelect1">
+			    	<option value="">Please Select</option>
 			    	<?php
 
 			    		$query = $dbh->query("SELECT distinct kabupaten FROM city_data ORDER BY kabupaten ASC");
 
 			    		while($row = $query->fetch(PDO::FETCH_OBJ)){
+			    			$kabupaten = $row->kabupaten;
 			    	 ?>
-			      <option value="<?php echo $row->kabupaten; ?>" ><?php echo $row->kabupaten; ?></option>
+			      <option <?php 
+
+			      		if($kota == $kabupaten){
+			      			echo "selected='selected'";
+			      		}
+
+			       ?> value="<?php echo $kabupaten; ?>" ><?php echo $row->kabupaten; ?></option>
 			      <?php } ?>
 			    </select>
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleFormControlSelect1">Kecamatan</label>
-			    <select class="form-control" id="exampleFormControlSelect1">
-			    	<option value=""></option>
+			    <select id="kecamatan" class="form-control" id="exampleFormControlSelect1">
+			    	<option value="">Please Select</option>
+			    	<?php
+
+
+			    		$query2 = $dbh->query("SELECT distinct kecamatan FROM city_data  WHERE kabupaten = '$kota' ORDER BY kecamatan ASC");
+
+			    		while($row2 = $query2->fetch(PDO::FETCH_OBJ)){
+			    	 ?>
+			      <option value="<?php echo $row2->kecamatan; ?>" ><?php echo $row2->kecamatan; ?></option>
+			      <?php } ?>
 			    </select>
 			</div>
 			  <div class="form-group">
@@ -92,24 +114,27 @@
           </tr>
         </tbody>
       </table>
+
     </div>
 
 
 </div>
 </div>
 
+
 <script>
-  $(".cart-qty").on("input",function(e){
-    var barang_id = $(this).attr("id");
-    var value = $(this).val();
 
-    $.ajax({
-      method  : "POST",
-      url     : "updateCart.php",
-      data    : "barang_id="+barang_id+"&value="+value
+    $( "#kota" ).change(function(e) {
+    	var abc = $(this).val();
+		
+		 $.ajax({
+	      method  : "POST",
+	      url     : "getKota.php",
+	      data    : "kota="+abc
 
-    }).done(function(data){
-      location.reload();
-    });
-  });
+	    }).done(function(data){
+	      location.reload();
+	    });
+
+	});
 </script>
