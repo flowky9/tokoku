@@ -1,6 +1,7 @@
 <?php 
   
   $productID = isset($_GET['id']) ? $_GET['id'] : false;
+  
 
  ?>
 

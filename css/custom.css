@@ -1,6 +1,15 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
+.row.pesanan {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 480px){
+  .detail-order {
+    margin-top:20px;
+  }
+}
 
 .list-product {
     margin: 10px 0px;

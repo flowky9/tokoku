@@ -5,7 +5,8 @@ require_once("function/helper.php");
 require_once("function/connection.php");
 
 $page = isset($_GET['page']) ? $_GET['page'] : false;
-
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$_SESSION['actual_link'] = $actual_link; 
 $cart = $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
 // echo "<pre>";

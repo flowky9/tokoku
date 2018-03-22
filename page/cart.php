@@ -22,12 +22,13 @@
         <tbody>
           <?php
 
+            $no = 1;
             $grandTotal = 0;
             foreach($cart as $key => $value){
 
           ?>
           <tr>
-            <td>2</td>
+            <td><?php echo $no++; ?></td>
             <td><?php echo $value['productName']; ?></td>
             <td><div class="col-12 col-sm-12">
               <input type="text" id="<?php echo $key; ?>" class="form-control form-control-sm cart-qty" style="width:30px" value="<?php echo $value['quantity']; ?>">
@@ -65,7 +66,7 @@
         <a class="btn btn-success a-btn"> < Back to Shop </a>
       </div>
       <div class="text-right">
-        <a class="btn btn-success a-btn">Order Now ></a>
+        <a href="<?php echo URL."index.php?page=data_order" ?>" class="btn btn-success a-btn">Order Now ></a>
       </div>
     </div>
   </div>

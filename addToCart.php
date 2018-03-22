@@ -24,7 +24,7 @@ $cart[$productID] = array(
 
 $_SESSION['cart'] = $cart;
 
-header("location:".URL."index.php?cart=add_success");
+header("location:".$_SESSION['actual_link']);
 
 
 
