@@ -148,19 +148,21 @@ if($page == "detail"){
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
-  classActive();
-  function removeActive(){
-   $("a.dropdown-item").removeClass("active");
-  }
+  // classActive();
+  // function removeActive(){
+  //  $("a.dropdown-item").removeClass("active");
+  // }
 
-  function classActive(){
-    $(".dropdown-item").click(function(e){
-      removeActive();
-      $(this).addClass("active");
-      e.preventDefault();
-    });
+  // function classActive(){
+  //   $(".dropdown-item").click(function(e){
+  //     removeActive();
+  //     $(this).addClass("active");
+  //     e.preventDefault();
+  //     var src = $(this).attr("src");
+  //     window.location.href = src;
+  //   });
 
-  }
+  // }
   
 </script>
 </body>

@@ -1,3 +1,25 @@
+<?php 
+error_reporting(0);
+$conditional = "";
+if(isset($_GET['category'])){
+  $idCat = $_GET['id'];
+     $queryCat = $dbh->query("SELECT productID FROM category_map WHERE categoryID = $idCat");
+
+     $getProductID = "";
+
+     if($queryCat->rowCount()>0){
+      while ($row = $queryCat->fetch(PDO::FETCH_OBJ)) {
+       $getProductID .= $row->productID.",";
+       }
+     }
+
+    if($getProductID != ""){
+       $getProductID = substr($getProductID, 0,-1);
+       $conditional = "WHERE productID IN (".$getProductID.")";
+    }
+}
+
+ ?>
 <div class="row">
   <div class="col-md-12">
     <!-- CAROUSEL  -->
@@ -32,7 +54,15 @@
 <div class="row">
   <?php 
 
-    $query = $dbh->query("SELECT * FROM product ORDER BY productID DESC");
+
+  
+    if($getProductID != "" || !isset($_GET['category'])){
+      $query = $dbh->query("SELECT * FROM product $conditional ORDER BY productID DESC");
+    }else {
+      $query = $dbh->query("SELECT * FROM product LIMIT 0");
+    }
+
+    if($query->rowCount() > 0){
 
     while($row = $query->fetch(PDO::FETCH_OBJ)){
 
@@ -41,6 +71,8 @@
     <!-- LIST PRODUCT -->
     <div class="card" >
     <?php 
+
+
 
       $productID = $row->productID;
 
@@ -60,7 +92,11 @@
   </div>
   </div>
 
-  <?php } ?>
+  <?php }
+    }else {
+      echo "Product Tidak ada";
+    }
+   ?>
 
 
 </div>

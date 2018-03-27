@@ -1,4 +1,4 @@
-<div class="row cart">
+<div class="row">
   <div class="col-md-12 cart-wrapper">
     <div>
       <h3>Cart</h3>

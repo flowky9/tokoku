@@ -120,7 +120,7 @@ define("URL", "http://localhost/tokoku2/");
 					if(parent_check($row->categoryID)){
 						$dataToggle = "dropdown-toggle";
 					}
-					echo '<li><a class="dropdown-item '.$dataToggle.' " href="#">'.$row->categoryName.'</a>' ;
+					echo '<li><a class="dropdown-item '.$dataToggle.' " href="index.php?category='.replace_words($row->categoryName).'&id='.$row->categoryID.'">'.$row->categoryName.'</a>' ;
 
 					if(parent_check($row->categoryID)){
 						hierarchy($row->categoryID);
@@ -141,7 +141,7 @@ define("URL", "http://localhost/tokoku2/");
 					if(parent_check($row->categoryID)){
 						$dataToggle = "dropdown-toggle";
 					}
-					echo '<li><a class="dropdown-item" href="#">'.$row->categoryName.'</a>';
+					echo '<li><a class="dropdown-item" href="index.php?category='.replace_words($row->categoryName).'&id='.$row->categoryID.'">'.$row->categoryName.'</a>';
 
 					if(parent_check($row->categoryID)){
 						hierarchy($row->categoryID);
