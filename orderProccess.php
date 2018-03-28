@@ -40,7 +40,7 @@ if(!isset($_SESSION['userID'])){
 		}
 	}
 
-	header("location:".URL."admin/index.php?order=success");
+	header("location:".URL."index.php?order=success");
 
 }
 

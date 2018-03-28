@@ -5,6 +5,14 @@ session_start();
 require_once("function/helper.php");
 require_once("function/connection.php");
 
+
+
+  if(isset($_GET['order']) == "success"){
+    echo "<script>alert('Order Telah Berhasil !')</script>";
+    unset($_SESSION['cart']);
+  }
+
+
 $page = isset($_GET['page']) ? $_GET['page'] : false;
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $_SESSION['actual_link'] = $actual_link; 
@@ -166,6 +174,8 @@ if($page == "detail"){
   // }
   
 </script>
+
+
 </body>
 </html>
 

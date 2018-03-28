@@ -3,6 +3,10 @@
   session_start();
   include_once("/function/connection.php");
   include_once("/function/helper.php");
+
+  // if(isset($_GET['order']) == "success"){
+  //   session_unset($_SESSION['cart']);
+  // }
   
   $page = isset($_GET['page']) ? $_GET['page'] : false;
   $user_id = isset($_SESSION['userID']) ? $_SESSION['userID'] : false;
