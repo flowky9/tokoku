@@ -8,22 +8,22 @@ $kota = isset($_SESSION['kota']) ? $_SESSION['kota'] : false;
 	<div class="card">
 		<div class="card-header">Data Pesanan</div>
 		<div class="card-body">
-				<form>
+				<form method="POST" action="<?php echo URL.'orderProccess.php'; ?>">
 				<div class="form-group">
 			    <label for="exampleFormControlInput1">Nama</label>
-			    <input type="text" class="form-control" id="exampleFormControlInput1">
+			    <input type="text" class="form-control" id="exampleFormControlInput1" name="name">
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleFormControlInput1">Email address</label>
-			    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+			    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleFormControlInput1">Phone</label>
-			    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="08xxxxxxx">
+			    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="08xxxxxxx" name="phone">
 			  </div>
 			  <div class="form-group">
 			    <label  for="exampleFormControlSelect1">Kota Tujuan</label>
-			    <select id="kota" class="form-control" id="exampleFormControlSelect1">
+			    <select id="kota" class="form-control" id="exampleFormControlSelect1" name="city">
 			    	<option value="">Please Select</option>
 			    	<?php
 
@@ -44,7 +44,7 @@ $kota = isset($_SESSION['kota']) ? $_SESSION['kota'] : false;
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleFormControlSelect1">Kecamatan</label>
-			    <select id="kecamatan" class="form-control" id="exampleFormControlSelect1">
+			    <select id="kecamatan" class="form-control" id="exampleFormControlSelect1" name="district">
 			    	<option value="">Please Select</option>
 			    	<?php
 
@@ -59,7 +59,7 @@ $kota = isset($_SESSION['kota']) ? $_SESSION['kota'] : false;
 			</div>
 			  <div class="form-group">
 			    <label for="exampleFormControlTextarea1">Alamat Lengkap</label>
-			    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address"></textarea>
 			  </div>
 
 			  <button class="btn btn-primary">Order Sekarang</button>

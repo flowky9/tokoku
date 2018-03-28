@@ -1,5 +1,6 @@
 <?php
 
+ob_start();
 session_start();
 require_once("function/helper.php");
 require_once("function/connection.php");
@@ -169,3 +170,4 @@ if($page == "detail"){
 </html>
 
 <?php $dbh = null; ?>
+<?php ob_end_flush(); ?>
